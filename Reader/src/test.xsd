@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="model" targetNamespace="model" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="EmployeeList">
+   <xs:complexType>
+    <xs:sequence>
+     <xs:element name="Employee" maxOccurs="unbounded">
+      <xs:complexType>
+        <xs:sequence>
+          <xs:element name="employeeInfo">
+           <xs:complexType>
+             <xs:sequence>
+                <xs:element name="name" type="xs:string"/>
+                <xs:element name="id" type="xs:int"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="enterDateList">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="enter" maxOccurs="unbounded">
+                  <xs:complexType>
+                     <xs:sequence>
+                       <xs:element name="enterDate" type="xs:string"/>
+                       <xs:element name="floor"  type="xs:int"/>
+                     </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="exitDateList">
+            <xs:complexType>
+              <xs:sequence>
+               <xs:element name="exit" maxOccurs="unbounded">
+                <xs:complexType>
+                 <xs:sequence>
+                   <xs:element name="exitDate" type="xs:string"/>
+                   <xs:element name="floor" type="xs:int"/>
+                 </xs:sequence>
+                </xs:complexType>
+               </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:complexType>
+     </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+
