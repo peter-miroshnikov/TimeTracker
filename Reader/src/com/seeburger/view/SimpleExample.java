@@ -46,8 +46,8 @@ public class SimpleExample
     private static JTextField input;
     private JScrollPane scrollPane;
 
-    private static final String[] pictures = {"pic\\Peter.jpg", "pic\\Georgi.jpg", "pic\\Krasio.jpg",
-                                              "pic\\Dimitar.jpg"};
+    private static final String[] pictures = {"Peter.jpg", "Georgi.jpg", "Krasio.jpg",
+                                              "Dimitar.jpg"};
     private JComboBox combobox = null;
     private static JLabel display = null;
 
@@ -172,7 +172,7 @@ public class SimpleExample
 
         final NameService nameService = new NameService(con);
 
-        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("pic\\Peter.jpg"));
+        ImageIcon icon = new ImageIcon(ClassLoader.getSystemResource("Peter.jpg"));
         input = new JTextField();
 
         Document autoCompleteDocument = new AutoCompleteDocument(nameService, input);

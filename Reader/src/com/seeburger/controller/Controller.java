@@ -183,4 +183,10 @@ public class Controller
         fun.calculateStatsTimeForEmployee(name);
     }
 
+	public void loadEmployeeList() {
+		// TODO Auto-generated method stub
+		
+		mm.loadEmployeeList();
+	}
+
 }

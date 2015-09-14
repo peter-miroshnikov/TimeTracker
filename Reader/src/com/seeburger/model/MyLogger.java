@@ -29,7 +29,7 @@ public class MyLogger
         try
         {
             sf = new SimpleFormatter();
-            fh = new FileHandler("D:\\MyLogFile.log");
+            fh = new FileHandler("C:\\Work\\MyLogFile.log");
             fh.setFormatter(sf);
             logger.addHandler(fh);
             logger.setLevel(Level.ALL);

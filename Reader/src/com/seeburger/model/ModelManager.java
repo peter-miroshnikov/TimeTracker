@@ -2,6 +2,7 @@ package com.seeburger.model;
 
 
 import java.io.File;
+import java.sql.SQLException;
 import java.util.logging.Level;
 
 import javax.swing.SwingUtilities;
@@ -21,7 +22,7 @@ public class ModelManager
     private int filesRead = 0;
     private LoadingBar lbar;
     private Controller con;
-
+    private DatabaseConnector db;
 
     public ModelManager(Controller controller)
     {
@@ -29,7 +30,9 @@ public class ModelManager
         cvsr = new CVSRead(this);
         MyLogger.getInstance().getLogger().log(Level.FINE, "Beging to read the files");
 
-        final File folder = new File("D:\\Downloads\\tracker\\New data");
+        db = new DatabaseConnector();
+        
+        final File folder = new File("C:\\Work\\Java\\Data\\tracker");
 
 
         readAllFilesInFolder(folder);
@@ -110,5 +113,30 @@ public class ModelManager
     {
         return EmployeeHolder.getInstance();
     }
+
+
+
+
+
+
+	public void loadEmployeeList() {
+		// TODO Auto-generated method stub
+		try {
+			db.loadEmployeeList();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
+
+
+
+
+	public DatabaseConnector getDb() {
+		// TODO Auto-generated method stub
+		return db;
+	}
 
 }

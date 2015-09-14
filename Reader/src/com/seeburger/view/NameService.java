@@ -33,9 +33,14 @@ public class NameService
     {
 
         data = new ArrayList();
-        if(EmployeeHolder.getInstance().getEmployeeList().getEmployee() == null)
+        if(EmployeeHolder.getInstance().getEmployeeList().getEmployee().isEmpty())
         {
             // Load Employee List From DB
+        	
+        	con.loadEmployeeList();
+        	
+        	
+        	
             //TODO
         }
         List<Employee> temp = EmployeeHolder.getInstance().getEmployeeList().getEmployee();

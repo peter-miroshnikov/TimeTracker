@@ -26,14 +26,14 @@ public class CVSRead
     private ModelManager mm;
     private Convertors con;
     private int counter = 0;
-    private DatabaseConnector db;
+   
 
 
     public CVSRead(ModelManager mm)
     {
         this.mm = mm;
         con = new Convertors();
-        db = new DatabaseConnector();
+        
     }
 
 
@@ -54,7 +54,7 @@ public class CVSRead
         int town = -1;
         try
         {
-            if (db.addFile(words))
+            if (mm.getDb().addFile(words))
             {
                 while ((row = readerc.readNext()) != null)
                 {
@@ -74,7 +74,7 @@ public class CVSRead
                     int personID = con.getIdOnly(row[14])[0];
                     String[] names = con.getFirstLastName(personName);
 
-                    db.addNewEmployee(names[0], names[1], personID);
+                    mm.getDb().addNewEmployee(names[0], names[1], personID);
 
                     String enteringType = con.getEnterOrExitStatus(row[15]);
                     // Employee emp = factory.createEmployeeListEmployee();
@@ -105,11 +105,11 @@ public class CVSRead
                     // .getLogger()
                     // .log(Level.CONFIG, "Adding the Employee to the Employee Holder class");
 
-                    db.addNewWorkingDay(names[0], names[1], con.getTimeFromString(row[12]));
+                    mm.getDb().addNewWorkingDay(names[0], names[1], con.getTimeFromString(row[12]));
 
                     if (enteringType.equals(ENTER))
                     {
-                        db.addEnterTime(names[0], names[1], con.getTimeFromString(row[12]));
+                    	mm.getDb().addEnterTime(names[0], names[1], con.getTimeFromString(row[12]));
                         // MyLogger.getInstance()
                         // .getLogger()
                         // .log(Level.CONFIG, "Creating Enter Object for person :" + personName);
@@ -142,7 +142,7 @@ public class CVSRead
                     }
                     else if (enteringType.equals(EXIT))
                     {
-                        db.addExitTime(names[0], names[1], con.getTimeFromString(row[12]));
+                    	mm.getDb().addExitTime(names[0], names[1], con.getTimeFromString(row[12]));
                         // MyLogger.getInstance()
                         // .getLogger()
                         // .log(Level.CONFIG, "Creating Exit Object for person :" + personName);
